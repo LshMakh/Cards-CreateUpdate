@@ -1,0 +1,31 @@
+
+<app-header></app-header>
+
+<div class="form-container">
+    <form [formGroup]="addForm" (ngSubmit)="addCard()" *ngIf="isAdmin(); else noPermission">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" formControlName="name" placeholder="Enter name">
+      </div>
+      
+      <div class="form-group">
+        <label for="occupation">Occupation:</label>
+        <input type="text" id="occupation" formControlName="occupation" placeholder="Enter occupation">
+      </div>
+  
+      <div class="form-group">
+        <label for="imageUrl">Image URL:</label>
+        <input type="text" id="imageUrl" formControlName="imageUrl" placeholder="Enter image URL">
+      </div>
+  
+      <button class="submit-btn" type="submit" [disabled]="!addForm.valid">Add Card</button>
+    </form>
+  
+    <ng-template #noPermission>
+      <div class="no-permission">
+        <h2>Insufficient Permissions</h2>
+        <p>You do not have the necessary permissions to add cards. Please contact the administrator.</p>
+      </div>
+    </ng-template>
+  </div>
+  

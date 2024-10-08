@@ -1,0 +1,10 @@
+<div class="card-container">
+  <div class="card" *ngFor="let card of cardsservice.cardsList">
+      <img [src]="card.imageUrl" alt="{{ card.name }}">
+      <h3>{{ card.name }}</h3>
+      <p>{{ card.occupation }}</p>
+      <button class="delete-btn" (click)="deleteCard(card.id)" *ngIf="isAdmin()">Delete</button> 
+      <button class="view-btn" [routerLink]="['/view/'+card.id]" routerLinkActive="router-link-active">View</button> 
+      <button class="edit-btn" [routerLink]="['/edit-card/'+card.id]" routerLinkActive="router-link-active" *ngIf="isAdmin()" >Edit</button>
+  </div>
+</div>

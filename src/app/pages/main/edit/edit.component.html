@@ -1,0 +1,8 @@
+<app-header></app-header>
+<form [formGroup]="editForm" (ngSubmit)="updateCard()">
+    <input type="text" formControlName="name" placeholder="Name">
+    <input type="text" formControlName="occupation" placeholder="Occupation">
+    <input type="text" formControlName="imageUrl" name="imageUrl" placeholder="Image URL">
+    <button type="submit" [disabled]="!editForm.valid">Update</button>
+  </form>
+  

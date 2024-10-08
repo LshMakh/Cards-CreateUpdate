@@ -1,0 +1,94 @@
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap; 
+  }
+  
+  
+  .card {
+    width: auto;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+  }
+  
+  
+  .card img {
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    max-height: 150px;
+  }
+  
+  
+  .card h3 {
+    font-size: 1.5em;
+    margin: 15px 0 10px;
+  }
+  
+  
+  .card p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+  }
+.delete-btn {
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 500ms;
+  margin-top: 10px;
+}
+
+.delete-btn:hover {
+  transition: 500ms;
+  background-color: #ff1a1a;
+}
+.edit-btn {
+  background-color: #61c4dd;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 500ms;
+}
+.view-btn {
+  background-color: #13ac28;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 500ms;
+  margin-top: 10px;
+}
+
+.edit-btn:hover {
+  transition: 500ms;
+  background-color: #12837b;
+}
+.view-btn:hover{
+  background-color: #095e15;
+  transition: 500ms;
+}

@@ -1,0 +1,10 @@
+<nav class="navbar">
+  <div class="container">
+    <a class="navbar-brand">Welcome {{userName}}</a>
+    <div class="nav-links">
+      <a routerLink="/main" class="nav-item">Home</a>
+      <a routerLink="/add-card" class="nav-item">Add Card</a>
+    </div>
+    <button id="logoutBtn" class="btn-logout" (click)="onLogout()">Logout</button>
+  </div>
+</nav>

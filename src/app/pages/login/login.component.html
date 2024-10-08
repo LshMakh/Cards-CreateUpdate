@@ -1,0 +1,39 @@
+<section class="login-section">
+  <div class="login-container">
+    <div class="login-row">
+  
+      <div class="login-form-column">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="form-group">
+            <input formControlName="userName" type="text" id="userName" placeholder="Enter Username" />
+            <label for="userName">User Name</label>
+            <div *ngIf="loginForm.get('userName')?.invalid && loginForm.get('userName')?.touched" class="error-message">
+              Username is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input formControlName="email" type="text" id="email" placeholder="Enter Email" />
+            <label for="email">Email</label>
+            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+              Email is required.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <input formControlName="password" type="password" id="password" placeholder="Enter password" />
+            <label for="password">Password</label>
+            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+              Password is required.
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="login-button" [disabled]="!loginForm.valid">Login</button>
+            <p class="register-link">Don't have an account? <a routerLink="/register">Register</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
