@@ -5,8 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { RegisterComponent } from './pages/register/register.component';
+import { MainInterceptor } from './interceptors/main.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,7 @@ import { RegisterComponent } from './pages/register/register.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [provideHttpClient()],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:MainInterceptor,multi:true},provideHttpClient(withFetch(), withInterceptorsFromDi())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

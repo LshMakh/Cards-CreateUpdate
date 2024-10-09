@@ -9,6 +9,8 @@ import { AuthService } from '../../../auth.service';
   styleUrl: './card.component.css'
 })
 export class CardComponent implements OnInit {
+  searchTerm: string = '';  
+  occupationTerm: string = '';  
 
   constructor(public cardsservice:CardsService, private authService:AuthService){}
 
@@ -18,6 +20,13 @@ export class CardComponent implements OnInit {
       this.cardsservice.cardsList=data;
     })
       
+  }
+  filteredCards(): Card[] {
+    return this.cardsservice.cardsList.filter(card => {
+      const matchesName = card.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+      const matchesOccupation = card.occupation.toLowerCase().includes(this.occupationTerm.toLowerCase());
+      return matchesName && matchesOccupation;
+    });
   }
 
   deleteCard(cardID:number){
